@@ -1,20 +1,49 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
+import React, { useState } from 'react';
+
+import GoalInput from './components/GoalInput';
+import GoalItem from './components/GoalItem';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	const [courseGoals, setCourseGoals] = useState([]);
+
+	function addGoalHandler(enteredGoalText) {
+		setCourseGoals((currentCourseGoals) => [
+			...currentCourseGoals,
+			{
+				text: enteredGoalText,
+				id: Math.floor(Math.random() * 9999).toString(),
+			},
+		]);
+	}
+
+	return (
+		<View style={styles.appContainer}>
+			<GoalInput onAddGoal={addGoalHandler} />
+
+			<View style={styles.goalContainer}>
+				<FlatList
+					data={courseGoals}
+					keyExtractor={(item, index) => {
+						return item.id;
+					}}
+					renderItem={(itemData) => {
+						return <GoalItem text={itemData.item.text} />;
+					}}
+					alwaysBounceVertical={false}
+				/>
+			</View>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	appContainer: {
+		flex: 1,
+		paddingTop: 50,
+		paddingHorizontal: 16,
+	},
+	goalContainer: {
+		flex: 5,
+	},
 });
