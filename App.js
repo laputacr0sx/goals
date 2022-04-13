@@ -36,6 +36,7 @@ export default function App() {
 
 	return (
 		<>
+			{/* fragment added to enable two same-level siblings on the top */}
 			<StatusBar />
 			<View style={styles.appContainer}>
 				<Button
@@ -84,9 +85,8 @@ const styles = StyleSheet.create({
 	},
 });
 
-/**
- * 
- * #1d033f
+/*
+#1d033f
 #5e0acd
 #dac0fc
 #f1e7fe
@@ -98,6 +98,4 @@ const styles = StyleSheet.create({
 #5e0acd
 #c00acd
 #cd0a79
-
-
  */

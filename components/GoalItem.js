@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
 		borderRadius: 6,
 		backgroundColor: '#5e0acc',
 	},
+	pressedItem: {
+		opacity: 0.5,
+	},
 	itemText: { color: '#f1e7fe', fontSize: 14, padding: 8 },
 });
 
