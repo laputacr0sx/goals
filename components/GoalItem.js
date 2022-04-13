@@ -16,11 +16,10 @@ function GoalItem(props) {
 const styles = StyleSheet.create({
 	itemContainer: {
 		margin: 8,
-
 		borderRadius: 6,
 		backgroundColor: '#5e0acc',
 	},
-	itemText: { color: 'white', fontSize: 14, padding: 8 },
+	itemText: { color: '#f1e7fe', fontSize: 14, padding: 8 },
 });
 
 export default GoalItem;
